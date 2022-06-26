@@ -1,5 +1,16 @@
 server:
   port: 8092
+  error: 
+    include-message: always
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/bdo_negocio
+    username: CITSE
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
   client:
     fetch-registry: true

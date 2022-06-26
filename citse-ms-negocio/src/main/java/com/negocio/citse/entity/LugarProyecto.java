@@ -2,6 +2,7 @@ package com.negocio.citse.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.negocio.citse.models.Distrito;
 import lombok.Data;
 import lombok.NonNull;
 import javax.persistence.*;
@@ -19,6 +20,9 @@ public class LugarProyecto implements Serializable {
 
     @Column(name = "ID_DISTRITO")
     private Integer distrito;
+
+    @Transient
+    private Distrito distritos;
 
     @Column(name = "ES_LUGAR_PROYECTO")
     private Boolean esLugarProyecto;
