@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface EntidadDao extends JpaRepository<Entidad,Integer> {
-    @Query("SELECT e FROM Entidad e WHERE (alias like %:query%")
-    public List<Entidad> findByAlias(String alias);
+    @Query("SELECT e FROM Entidad e WHERE (alias like %:query% or co_alias like %:query%)")
+    public List<Entidad> findByAlias(String query);
 }
