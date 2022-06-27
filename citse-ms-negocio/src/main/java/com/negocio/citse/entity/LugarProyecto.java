@@ -22,7 +22,7 @@ public class LugarProyecto implements Serializable {
     private Integer distrito;
 
     @Transient
-    private Distrito distritos;
+    private Distrito distritos;//NO SE INSERTARA EN LA BD-- SOLO PARA CLIENTEFEIGN
 
     @Column(name = "ES_LUGAR_PROYECTO")
     private Boolean esLugarProyecto;

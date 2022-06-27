@@ -43,4 +43,8 @@ public class Proyecto implements Serializable {
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "proyecto")
     private List<LugarProyecto> lugares;
 
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "proyecto")
+    private List<EntidadProyecto> entidades;
+
 }
