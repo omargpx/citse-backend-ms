@@ -30,6 +30,7 @@ public class LugarProyectoServiceImp implements LugarProyectoService {
 
     @Override
     public LugarProyecto findById(Integer id) {
+        
         return repo.findById(id).orElse(null);
     }
 

@@ -2,6 +2,7 @@ package com.ubigeo.citse.service.serviceImp;
 
 import com.ubigeo.citse.dao.DistritoDao;
 import com.ubigeo.citse.entity.Distrito;
+import com.ubigeo.citse.entity.Provincia;
 import com.ubigeo.citse.service.DistritoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,15 @@ public class DistritoServiceImp implements DistritoService {
     @Transactional(readOnly = true)
     public Distrito findById(int id) {
         return repo.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Distrito> findByNoDistrito(String noDistrito){
+        return repo.findByNoDistrito(noDistrito);
+    }
+
+    @Override
+    public List<Distrito> findByProvincia(Provincia provincia){
+        return repo.findByProvincia(provincia);
     }
 }

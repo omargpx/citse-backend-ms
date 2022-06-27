@@ -1,7 +1,10 @@
 package com.ubigeo.citse.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,7 +22,6 @@ public class Distrito implements Serializable {
     @Column(name = "NO_DISTRITO")
     private String noDistrito;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_PROVINCIA")
     private Provincia provincia;

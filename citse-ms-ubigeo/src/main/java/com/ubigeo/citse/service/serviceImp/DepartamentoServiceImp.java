@@ -27,4 +27,8 @@ public class DepartamentoServiceImp implements DepartamentoService {
         return repo.findById(id).orElse(null);
     }
 
+    @Override
+    public List<Departamento> findByNoDepartamento(String noDepartamento) {
+        return repo.findByNoDepartamento(noDepartamento);
+    }
 }

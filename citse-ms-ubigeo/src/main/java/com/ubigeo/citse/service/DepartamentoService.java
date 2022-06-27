@@ -8,5 +8,6 @@ public interface DepartamentoService {
     public List<Departamento> findAll();
 
     public Departamento findById(int id);
+    public List<Departamento> findByNoDepartamento(String noDepartamento);
 
 }
