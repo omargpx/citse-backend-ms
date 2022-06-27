@@ -1,4 +1,4 @@
-package com.entidad.citse.entity.service;
+package com.entidad.citse.service;
 
 import com.entidad.citse.entity.Entidad;
 
@@ -8,4 +8,6 @@ public interface EntidadService {
     public List<Entidad> findAll();
     public Entidad findById(Integer id);
     public void deleteById(Integer id);
+
+    public List<Entidad> findByAlias(String alias);
 }
