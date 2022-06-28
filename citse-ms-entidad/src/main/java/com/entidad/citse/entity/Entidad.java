@@ -1,9 +1,11 @@
 package com.entidad.citse.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -30,5 +32,9 @@ public class Entidad implements Serializable {
 
     @Column(name = "ID_TIPO_ENTIDAD")
     private Integer idTipoEntidad;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "entidad")
+    private List<PersonaEntidad> personaEntidades;
 
 }
