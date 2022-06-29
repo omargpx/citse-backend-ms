@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
-public class Distrito {
-    private Integer idDistrito;
+public class Distrito implements Serializable {
+    private Integer id;
     private String noDistrito;
-    private Integer idProvincia;
+    private Provincia provincia;
 }

@@ -18,11 +18,12 @@ public class LugarProyecto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonIgnore
     @Column(name = "ID_DISTRITO")
-    private Integer distrito;
+    private Integer idDistrito;
 
     @Transient
-    private Distrito distritos;//NO SE INSERTARA EN LA BD-- SOLO PARA CLIENTEFEIGN
+    private Distrito distrito;//NO SE INSERTARA EN LA BD-- SOLO PARA CLIENTEFEIGN
 
     @Column(name = "ES_LUGAR_PROYECTO")
     private Boolean esLugarProyecto;

@@ -23,7 +23,7 @@ public class LugarProyectoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<LugarProyecto>> findByProyecto(@RequestParam(name = "proyecto",required = false) Integer proyecto,
+    public ResponseEntity<List<LugarProyecto>> findAll(@RequestParam(name = "proyecto",required = false) Integer proyecto,
                                                               @RequestParam(name = "distrito",required = false)Integer distrito){
         List<LugarProyecto> lp = new ArrayList<>();
         if(null == proyecto && null==distrito){
@@ -35,7 +35,7 @@ public class LugarProyectoController {
             if(lp.isEmpty())
                 return ResponseEntity.notFound().build();
         }else{
-            lp=service.findByDistrito(distrito);
+            lp=service.findByIdDistrito(distrito);
             if(lp.isEmpty())
                 return ResponseEntity.notFound().build();
         }

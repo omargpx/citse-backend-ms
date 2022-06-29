@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface LugarProyectoDao extends JpaRepository<LugarProyecto,Integer> {
-    public List<LugarProyecto> findByDistrito(Integer id);
+    public List<LugarProyecto> findByIdDistrito(Integer id);
     public List<LugarProyecto> findByProyecto(Proyecto proyecto);
 }

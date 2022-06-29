@@ -15,7 +15,7 @@ public interface LugarProyectoService {
     public LugarProyecto deleteById(Integer id);
 
     // --
-    public List<LugarProyecto> findByDistrito(Integer id);
+    public List<LugarProyecto> findByIdDistrito(Integer id);
     public List<LugarProyecto> findByProyecto(Proyecto proyecto);
 
 }

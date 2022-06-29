@@ -22,6 +22,8 @@ public class LugarProyectoServiceImp implements LugarProyectoService {
     @Autowired
     private LugarProyectoDao repo;
 
+    @Autowired
+    private DistritoFeignClient distritoFeignClient;
 
     @Override
     public List<LugarProyecto> findAll() {
@@ -30,8 +32,13 @@ public class LugarProyectoServiceImp implements LugarProyectoService {
 
     @Override
     public LugarProyecto findById(Integer id) {
-
-        return repo.findById(id).orElse(null);
+        LugarProyecto lp=  repo.findById(id).orElse(null);
+        if(null != lp){
+            Distrito distrito = distritoFeignClient.getDistrito(lp.getIdDistrito()).getBody();
+            lp.setDistrito(distrito);
+           // distrito.setId(lp.getDistrito());
+        }
+        return lp;
     }
 
     @Override
@@ -48,8 +55,8 @@ public class LugarProyectoServiceImp implements LugarProyectoService {
     }
 
     @Override
-    public List<LugarProyecto> findByDistrito(Integer id) {
-        return repo.findByDistrito(id);
+    public List<LugarProyecto> findByIdDistrito(Integer id) {
+        return repo.findByIdDistrito(id);
     }
 
     @Override
