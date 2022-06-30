@@ -40,7 +40,7 @@ public class Proyecto implements Serializable {
     private Boolean esProyecto;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "proyecto")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "proyecto")
     private List<LugarProyecto> lugares;
 
     @JsonIgnore

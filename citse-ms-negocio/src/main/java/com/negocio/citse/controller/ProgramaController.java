@@ -50,4 +50,12 @@ public class ProgramaController {
     }
 
     //FALTA EL ELIMINADO LOGICO
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Programa deleteById(@PathVariable Integer id){
+        Programa programa= findById(id);
+        programa.setEsPrograma(false);
+        service.save(programa);
+        return programa;
+    }
 }

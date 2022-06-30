@@ -22,7 +22,6 @@ public class ProyectoController {
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public Proyecto findById(@PathVariable Integer id, HttpRequestHandlerServlet request){
         return  service.findById(id);
     }
@@ -44,4 +43,14 @@ public class ProyectoController {
         p.setFeFin(proyecto.getFeFin());
         return service.save(p);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Proyecto deleteById(@PathVariable Integer id){
+        Proyecto p = service.findById(id);
+        p.setEsProyecto(false);
+        service.save(p);
+        return p;
+    }
+
 }

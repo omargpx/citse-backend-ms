@@ -1,13 +1,19 @@
 package com.negocio.citse.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Table(name = "TMA_PROGRAMAS")
 @Entity
+@AllArgsConstructor @NoArgsConstructor @Builder
 public class Programa implements Serializable {
 
     @Id
@@ -36,4 +42,8 @@ public class Programa implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ID_PROYECTO")
     private Proyecto proyecto;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "programa")
+    private List<Taller> talleres;
 }
